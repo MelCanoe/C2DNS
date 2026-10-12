@@ -1,0 +1,44 @@
+{
+    "monsite.fr": {
+        "A": ["85.120.10.1"],
+        "AAAA": ["2001:db8::1"],
+        "MX": [
+        { "priority": 10, "host": "mail.monsite.fr" },
+        { "priority": 20, "host": "backup.monsite.fr" }
+        ],
+        "TXT": ["v=spf1 include:_spf.google.com ~all"],
+        "NS": ["ns1.monsite.fr", "ns2.monsite.fr"]
+    },
+
+    "mail.monsite.fr": {
+        "A": ["85.120.10.2"]
+    },
+
+    "www.monsite.fr": {
+        "CNAME": ["monsite.fr"]
+    },
+
+    "1.10.120.85.in-addr.arpa": {
+        "PTR": ["monsite.fr"]
+    },
+
+    "1.0.0.127.in-addr.arpa": {
+        "PTR": ["dns.monsite.fr"]
+    },
+
+    "_minecraft._tcp.monsite.fr": {
+        "SRV": [
+        { "priority": 0, "weight": 5, "port": 25565, "target": "jeu.monsite.fr" }
+        ]
+    },
+
+    "$SOA": {
+        "mname": "ns1.monsite.fr",
+        "rname": "admin.monsite.fr",
+        "serial": 2026100901,
+        "refresh": 3600,
+        "retry": 600,
+        "expire": 86400,
+        "minimum": 300
+    }
+}
